@@ -2,8 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package atividade2;
-
+package atividade3;
 import java.util.Scanner;
 
 /**
@@ -17,7 +16,7 @@ public class App {
         Funcionarios[] funcionarios = new Funcionarios[5];
         
         Funcionarios f = new Funcionarios();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 5; i++) {
             funcionarios[i] = new Funcionarios(); 
 
             System.out.println("Qual o nome do funcionário?");
@@ -25,6 +24,7 @@ public class App {
 
             System.out.println("Qual o salário do funcionário?");
             funcionarios[i].setSalario(teclado.nextDouble());
+           
         }
 
         System.out.println("\n--- Relação de Funcionários e IRPF ---");
@@ -38,4 +38,3 @@ public class App {
         teclado.close();
     }
 }
-
