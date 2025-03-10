@@ -33,16 +33,16 @@ public class Funcionario {
 
     public double cacularirpf() {
         double pagar = 0;
-        if (salario <= 1903.98) {
-            System.out.println("Isento de imposto de renda");
-        } else if (salario > 1903.98 && salario < 2826.65) {
-            pagar = (salario * (7.5 / 100));
-        } else if (salario > 2826.65 && salario < 3751.05) {
-            pagar = (salario * (15 / 100));
-        } else if (salario > 3751.05 && salario < 4664.68) {
-            pagar = (salario * (22.5 / 100));
+       if (salario <= 1903.98) {
+            return 0;
+        } else if (salario <= 2826.65) {
+            pagar = salario * 0.075;
+        } else if (salario <= 3751.05) {
+            pagar = salario * 0.15;
+        } else if (salario <= 4664.68) {
+            pagar = salario * 0.225;
         } else {
-            pagar = (salario * (27.5 / 100));
+            pagar = salario * 0.275;
         }
         return pagar;
     }
