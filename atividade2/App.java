@@ -4,31 +4,38 @@
  */
 package atividade2;
 
+import java.util.Scanner;
+
 /**
  *
- * @author gtvargas
+ * @author Usuário
  */
 public class App {
-
+    
     public static void main(String[] args) {
-        ContaBancaria c1, c2;
-        c1 = new ContaBancaria();
-        c1.setNumero("1222-3");
-        c1.setTitular("Agostinho");
+        Scanner teclado = new Scanner(System.in);
+        Funcionarios[] funcionarios = new Funcionarios[5];
+        
+        Funcionarios f = new Funcionarios();
+        for (int i = 0; i < 2; i++) {
+            funcionarios[i] = new Funcionarios(); 
 
-        c2 = new ContaBancaria();
-        c2.setNumero("22255-9");
-        c2.setTitular("Beissola");
+            System.out.println("Qual o nome do funcionário?");
+            funcionarios[i].setNome(teclado.next());
 
-        c1.depositar(1000);
-        c1.depositar(700);
+            System.out.println("Qual o salário do funcionário?");
+            funcionarios[i].setSalario(teclado.nextDouble());
+        }
 
-        c2.depositar(5000);
+        System.out.println("\n--- Relação de Funcionários e IRPF ---");
+        for (int i = 0; i < funcionarios.length; i++) {
+            double irpf = funcionarios[i].cacularIrpf();
+            System.out.println("Funcionário: " + funcionarios[i].getNome() +
+                               " | Salário: R$ " + funcionarios[i].getSalario() +
+                               " | IRPF a pagar: R$ " + irpf);
+        }
 
-        c2.sacar(3000);
-        c2.transferir(c1, 1800);
-
-        System.out.println("Titular da conta 1 " + c1.getTitular() + " saldo " + c1.getSaldo());
-        System.out.println("Titular da conta 1 " + c2.getTitular() + " saldo " + c2.getSaldo());
+        teclado.close();
     }
 }
+
